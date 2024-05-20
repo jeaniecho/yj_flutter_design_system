@@ -26,8 +26,6 @@ class YJButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
     return ElevatedButton(
       onPressed: isDisabled ? null : onPressed,
       style: ButtonStyle(
@@ -46,10 +44,8 @@ class YJButton extends StatelessWidget {
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             side: isOutline
-                ? BorderSide(
-                    color: isDarkMode
-                        ? YJColors.darkTextPrimary
-                        : YJColors.textPrimary,
+                ? const BorderSide(
+                    color: YJColors.textPrimary,
                     width: 2.0,
                   )
                 : BorderSide.none,
@@ -59,9 +55,7 @@ class YJButton extends StatelessWidget {
           TextStyle(color: textColor ?? Colors.white),
         ),
         shadowColor: MaterialStateProperty.all<Color>(
-          isDarkMode
-              ? YJShadows.darkModeSubtleShadow.color
-              : YJShadows.lightShadow.color,
+          YJShadows.lightShadow.color,
         ),
         elevation: MaterialStateProperty.all<double>(isOutline ? 0 : 2),
       ),
@@ -89,7 +83,7 @@ class YJPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return YJButton(
       onPressed: onPressed,
-      color: Theme.of(context).primaryColor,
+      color: YJColors.primary,
       textColor: YJColors.secondary,
       isDisabled: isDisabled,
       child: child,
@@ -111,10 +105,9 @@ class YJSecondaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return YJButton(
       onPressed: onPressed,
-      color: isDarkMode ? YJColors.darkGrey040 : YJColors.grey050,
+      color: YJColors.grey050,
       textColor: YJColors.secondary,
       isDisabled: isDisabled,
       child: child,
@@ -140,7 +133,7 @@ class YJOutlineButton extends StatelessWidget {
       onPressed: onPressed,
       isDisabled: isDisabled,
       isOutline: true,
-      textColor: Theme.of(context).textTheme.bodyLarge?.color,
+      textColor: YJColors.textPrimary,
       child: child,
     );
   }

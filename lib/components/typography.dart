@@ -1,59 +1,40 @@
 import 'package:flutter/material.dart';
+import '../theme/colors.dart';
 
 class YJTypography {
-  // Common Text Styles
-  static const double _headlineLargeFontSize = 32;
-  static const double _headlineMediumFontSize = 24;
-  static const double _headlineSmallFontSize = 20;
-  static const double _bodyLargeFontSize = 16;
-  static const double _bodyMediumFontSize = 14;
-  static const double _bodySmallFontSize = 12;
+  static const TextStyle heading1 = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    color: YJColors.textPrimary,
+  );
 
-  static TextStyle headlineLarge(BuildContext context) {
-    return TextStyle(
-      fontSize: _headlineLargeFontSize,
-      fontWeight: FontWeight.bold,
-      color: Theme.of(context).textTheme.headlineLarge?.color,
-    );
-  }
+  static const TextStyle heading2 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: YJColors.textPrimary,
+  );
 
-  static TextStyle headlineMedium(BuildContext context) {
-    return TextStyle(
-      fontSize: _headlineMediumFontSize,
-      fontWeight: FontWeight.bold,
-      color: Theme.of(context).textTheme.headlineMedium?.color,
-    );
-  }
+  static const TextStyle heading3 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: YJColors.textPrimary,
+  );
 
-  static TextStyle headlineSmall(BuildContext context) {
-    return TextStyle(
-      fontSize: _headlineSmallFontSize,
-      fontWeight: FontWeight.bold,
-      color: Theme.of(context).textTheme.headlineSmall?.color,
-    );
-  }
+  static const TextStyle bodyText1 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: YJColors.textPrimary,
+  );
 
-  static TextStyle bodyLarge(BuildContext context) {
-    return TextStyle(
-      fontSize: _bodyLargeFontSize,
-      fontWeight: FontWeight.normal,
-      color: Theme.of(context).textTheme.bodyLarge?.color,
-    );
-  }
+  static const TextStyle bodyText2 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: YJColors.textSecondary,
+  );
 
-  static TextStyle bodyMedium(BuildContext context) {
-    return TextStyle(
-      fontSize: _bodyMediumFontSize,
-      fontWeight: FontWeight.normal,
-      color: Theme.of(context).textTheme.bodyMedium?.color,
-    );
-  }
-
-  static TextStyle bodySmall(BuildContext context) {
-    return TextStyle(
-      fontSize: _bodySmallFontSize,
-      fontWeight: FontWeight.normal,
-      color: Theme.of(context).textTheme.bodySmall?.color,
-    );
-  }
+  static const TextStyle caption = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: YJColors.textSecondary,
+  );
 }
