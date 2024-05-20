@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/colors.dart';
+import 'colors.dart';
 
 class YJTypography {
   static const TextStyle heading1 = TextStyle(

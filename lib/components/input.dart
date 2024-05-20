@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
-import 'typography.dart';
+import '../theme/typography.dart';
 
 enum YJInputFieldStyle {
   border,
