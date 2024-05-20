@@ -11,55 +11,120 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'YJ Flutter Design System Example',
+      title: 'YJ Design System Example',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: YJColors.primary,
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: YJColors.textPrimary),
+          bodyMedium: TextStyle(color: YJColors.textSecondary),
+        ),
+        buttonTheme: const ButtonThemeData(
+          buttonColor: YJColors.primary,
+          textTheme: ButtonTextTheme.primary,
+        ),
       ),
-      home: const MyHomePage(),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatelessWidget {
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
+  final TextEditingController _controller3 = TextEditingController();
+  final TextEditingController _controller4 = TextEditingController();
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('YJ Flutter Design System Example'),
+      appBar: const YJAppBar(
+        title: 'Home Page',
+        showBackButton: false,
+        showCloseButton: false,
+        backgroundColor: YJColors.primary,
+        titleColor: YJColors.secondary,
+        iconColor: YJColors.secondary,
       ),
       body: Padding(
-        padding: YJEdgeInsets.all12,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              YJButton(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            YJInputField(
+              controller: _controller1,
+              label: 'Input with Border',
+              style: YJInputFieldStyle.border,
+              color: YJColors.primary,
+              onChanged: (value) {
+                print('Input with Border: $value');
+              },
+            ),
+            const SizedBox(height: 20),
+            YJInputField(
+              controller: _controller2,
+              label: 'Input without Border',
+              style: YJInputFieldStyle.noBorder,
+              onChanged: (value) {
+                print('Input without Border: $value');
+              },
+            ),
+            const SizedBox(height: 20),
+            YJInputField(
+              controller: _controller3,
+              label: 'Input with Background',
+              style: YJInputFieldStyle.background,
+              color: YJColors.grey020,
+              onChanged: (value) {
+                print('Input with Background: $value');
+              },
+            ),
+            const SizedBox(height: 20),
+            YJInputField(
+              controller: _controller4,
+              label: 'Input with Underline',
+              style: YJInputFieldStyle.underline,
+              color: YJColors.primary,
+              onChanged: (value) {
+                print('Input with Underline: $value');
+              },
+            ),
+            const SizedBox(height: 40),
+            Center(
+              child: YJPrimaryButton(
                 onPressed: () {
-                  print('YJButton pressed');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondPage()),
+                  );
                 },
-                color: Colors.blue,
-                textColor: Colors.white,
-                borderRadius: 12.0,
-                padding: YJEdgeInsets.all8,
-                child: const Text('Press Me'),
+                child: const Text('Go to Second Page'),
               ),
-              const SizedBox(height: 20),
-              Container(
-                color: Colors.red,
-                padding: YJEdgeInsets.all8,
-                child: const Text('With Small Padding'),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                color: Colors.green,
-                padding: YJEdgeInsets.all24,
-                child: const Text('With Extra Large Padding'),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      appBar: YJAppBar(
+        title: 'Second Page',
+        showBackButton: true,
+        showCloseButton: true,
+        backgroundColor: YJColors.primary,
+        titleColor: YJColors.secondary,
+        iconColor: YJColors.secondary,
+      ),
+      body: Center(
+        child: Text('This is the second page'),
       ),
     );
   }
