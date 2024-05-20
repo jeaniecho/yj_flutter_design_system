@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
           buttonColor: YJColors.primary,
           textTheme: ButtonTextTheme.primary,
         ),
+        colorScheme: YJColors.colorScheme,
       ),
       home: HomePage(),
     );
@@ -44,8 +45,8 @@ class HomePage extends StatelessWidget {
         showBackButton: false,
         showCloseButton: false,
         backgroundColor: YJColors.primary,
-        titleColor: YJColors.secondary,
-        iconColor: YJColors.secondary,
+        titleColor: YJColors.white,
+        iconColor: YJColors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
