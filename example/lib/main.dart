@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
         title: const Text('YJ Flutter Design System Example'),
       ),
       body: Padding(
-        padding: YJEdgeInsets.large,
+        padding: YJEdgeInsets.all12,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,19 +42,19 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.blue,
                 textColor: Colors.white,
                 borderRadius: 12.0,
-                padding: YJEdgeInsets.medium,
+                padding: YJEdgeInsets.all8,
                 child: const Text('Press Me'),
               ),
               const SizedBox(height: 20),
               Container(
                 color: Colors.red,
-                padding: YJEdgeInsets.small,
+                padding: YJEdgeInsets.all8,
                 child: const Text('With Small Padding'),
               ),
               const SizedBox(height: 20),
               Container(
                 color: Colors.green,
-                padding: YJEdgeInsets.xlarge,
+                padding: YJEdgeInsets.all24,
                 child: const Text('With Extra Large Padding'),
               ),
             ],
